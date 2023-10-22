@@ -1,9 +1,11 @@
 services:
-  postgres:
-    image: 'postgres:latest'
+  azuresqledge:
+    image: 'mcr.microsoft.com/azure-sql-edge:latest'
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      - 'ACCEPT_EULA=1'
+      - 'MSSQL_SA_PASSWORD=9v8zMmFa'
+      - ´
     ports:
-      - '5432:5432'
+      - '1434:1433'
+    container_name: 'azure-sql-edge'
+    hostname: 'azure-sql-edge'

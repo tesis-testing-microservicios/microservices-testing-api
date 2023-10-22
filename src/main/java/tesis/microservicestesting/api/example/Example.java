@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 @Entity
@@ -16,10 +15,12 @@ public class Example {
     private Long id;
     private String firstName;
     private String lastName;
+    private int age;
 
-    public Example(String firstName, String lastName) {
+    public Example(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.age = age;
     }
 
     protected Example() {
@@ -28,8 +29,8 @@ public class Example {
     @Override
     public String toString() {
         return String.format(
-                "Customer[id=%d, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
+                "Customer[id=%d, firstName='%s', lastName='%s', age='%d']",
+                id, firstName, lastName,age);
     }
 
 }

@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.flywaydb:flyway-sqlserver:9.22.3")
+        classpath("com.microsoft.sqlserver:mssql-jdbc:10.2.2.jre11")
+    }
+}
+
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.1.5'
@@ -31,14 +41,27 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.flywaydb:flyway-core:9.22.3'
+    implementation 'org.flywaydb:flyway-sqlserver:9.22.3'
+    implementation 'com.microsoft.sqlserver:mssql-jdbc:10.2.2.jre11' // Adjust version as needed
     implementation 'org.modelmapper:modelmapper:2.3.8'
     testImplementation 'junit:junit:4.13.1'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-    runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 }
+
+
+flyway {
+    url = 'jdbc:sqlserver://localhost:1434;database=api;Encrypt=false'
+    user = 'sa'
+    password = '9v8zMmFa'
+    schemas = ['dbo']
+    driver = 'com.microsoft.sqlserver.jdbc.SQLServerDriver'
+    cleanDisabled = false
+}
+
 
 tasks.named('test') {
     outputs.dir snippetsDir

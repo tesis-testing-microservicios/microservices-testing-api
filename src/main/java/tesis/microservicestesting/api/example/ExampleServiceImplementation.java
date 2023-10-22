@@ -30,7 +30,10 @@ public class ExampleServiceImplementation implements ExampleService {
     @Override
     public ExampleDto CreateExample(CreateExampleRequestDto createExampleRequestDto) {
 
-        Example example =  new Example(createExampleRequestDto.getFirstName(), createExampleRequestDto.getLastName());
+        Example example =  new Example(
+                createExampleRequestDto.getFirstName(),
+                createExampleRequestDto.getLastName(),
+                createExampleRequestDto.getAge());
 
         exampleRepository.save(example);
 

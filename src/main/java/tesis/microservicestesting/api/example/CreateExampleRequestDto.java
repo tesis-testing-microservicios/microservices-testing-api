@@ -12,4 +12,5 @@ import lombok.Setter;
 public class CreateExampleRequestDto {
     private String firstName;
     private String lastName;
+    private int age;
 }

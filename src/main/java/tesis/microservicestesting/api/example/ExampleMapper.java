@@ -6,6 +6,7 @@ public class ExampleMapper {
         return new ExampleDto(
                 example.getId(),
                 example.getFirstName(),
-                example.getLastName());
+                example.getLastName(),
+                example.getAge());
     }
 }
